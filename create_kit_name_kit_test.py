@@ -32,9 +32,9 @@ def check_name():
 # Функция для негативной проверки
 def negative_assert(name):
     kit_body = get_kit_body(name)
-    kit_response = requests.post(configuration.URL_SERVICE + configuration.CREATE_KIT_PATH, json=kit_body, headers=data.kit_header)
+    # kit_response = requests.post(configuration.URL_SERVICE + configuration.CREATE_KIT_PATH, json=kit_body, headers=data.kit_header)
 
-    # kit_response = sender_stand_request.post_new_client_kit(kit_body, data.auth_token, data.kit_header)
+    kit_response = sender_stand_request.post_new_client_kit(kit_body, data.auth_token, data.kit_header)
 
 
     assert kit_response.status_code == 400

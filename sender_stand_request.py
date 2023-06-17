@@ -23,6 +23,11 @@ response = post_new_user(data.user_body)
 token = response.json()['authToken']
 print(response, token)
 
+def get_users_table():
+    return requests.get(configuration.URL_SERVICE + configuration.USERS_TABLE)
+
+response = get_users_table()
+print(response.status_code)
 
 def post_new_client_kit(kit_body, auth_token, kit_header):
     return requests.post(configuration.URL_SERVICE + configuration.CREATE_KIT, json=kit_body, headers=kit_header)

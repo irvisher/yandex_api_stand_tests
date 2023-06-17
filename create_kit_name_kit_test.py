@@ -40,13 +40,21 @@ def positive_assert(name):
     )
     assert kit_table_response.text.count(str_kits) == 1'''
 
-
+#kit_body -> str : name для изменения объекта kit_body
 def negative_assert(kit_body):
 
-    if not kit_body:
+    if kit_body is None:
         kit_body = {
-        'name': ''
+        # 'name': ''
         }
+    #do not work now ?(
+    elif not kit_body:
+        kit_body = {
+            "name": None
+            # 'name': ''
+        }
+    else:
+        kit_body = change_kit_body(kit_body)
 
     res = sender_stand_request.post_new_client_kit(kit_body, data.auth_token, data.kit_header)
 
@@ -115,7 +123,7 @@ def test_create_kit_numbers_allowed_get_success_response():
 
 # 10
 def test_create_kit_parameter_not_passed_get_unsuccess_response():
-    negative_assert()
+    negative_assert(None)
 
 
 # 11

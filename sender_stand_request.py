@@ -15,11 +15,6 @@ def post_create_client_kit():
     return req
 print(post_create_client_kit())
 """
-def get_kits_table():
-    return requests.get(configuration.URL_SERVICE + configuration.KITS_TABLE)
-
-res = get_kits_table().status_code
-print(res)
 
 def post_new_user(body):
     return requests.post(configuration.URL_SERVICE + configuration.CREATE_USER, json=body, headers=data.headers)
@@ -36,3 +31,8 @@ response = post_new_client_kit(data.kit_body, data.auth_token, data.kit_header) 
 print(response, response.json())
 
 
+def get_kits_table():
+    return requests.get(configuration.URL_SERVICE + configuration.KITS_TABLE)
+
+res = get_kits_table().status_code
+print(res)

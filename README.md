@@ -9,19 +9,7 @@
 - Чек-лист проверок из задания содержит 11 проверок: 4 негативных и 7 позитивных;
 - Для запуска тестов в среде разработки должны быть установлены библиотеки 'pytest' и 'requests', а также настроена конфигурация 'Python' - > 'pytest';
 - Запуск всех тестов выполянется командой"Debug'pytest'" -> ![image](https://github.com/irvisher/yandex_api_stand_tests/assets/53014420/4821104b-d3a2-4f4e-a555-af5ca9d82edf);
-  
 
-
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even) {
-  background-color: #dddddd;
-}
-</style>
 </head>
 <body>
 

@@ -10,16 +10,7 @@
 - Для запуска тестов в среде разработки должны быть установлены библиотеки 'pytest' и 'requests', а также настроена конфигурация 'Python' - > 'pytest';
 - Запуск всех тестов выполянется командой"Debug'pytest'" -> ![image](https://github.com/irvisher/yandex_api_stand_tests/assets/53014420/4821104b-d3a2-4f4e-a555-af5ca9d82edf);
   
-#Результаты:
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-table {
-  font-family: arial;
-  border-collapse: collapse;
-  width: 100%;
-}
+
 
 td, th {
   border: 1px solid #dddddd;

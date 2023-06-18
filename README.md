@@ -3,5 +3,6 @@
 - В проекте содержится 6 файлов: RAEDME.md, gitignore, configuration.py, data.py, sender_stand_request.py, create_kit_name_kit_test.py;
 - Чек-лист проверок из задания содержит 11 проверок;
 - Для запуска тестов в среде разработки должны быть установлены библиотеки 'pytest' и 'requests', а также настроена конфигурация 'Python' - > 'pytest';
-- Запуск всех тестов выполянется командой'Run' -> ![image](https://github.com/irvisher/yandex_api_stand_tests/assets/53014420/edf21396-098f-42d1-bcaa-63b7ef354589);
+- Запуск всех тестов выполянется командой'Run' -> ![image](https://github.com/irvisher/yandex_api_stand_tests/assets/53014420/4821104b-d3a2-4f4e-a555-af5ca9d82edf)
+;
 

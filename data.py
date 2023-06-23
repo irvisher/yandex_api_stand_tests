@@ -10,12 +10,6 @@ user_body = {
     "address": "г. Москва, ул. Хохотушкина, д. 16"
 }
 
-kit_header = {
-    "Content-Type": "application/json",
-    "Authorization": "Bearer jknnFApafP4awfAIFfafam2fma"
-}
-
-
 kit_body = {
     "name": "Мой набор",
     "card": {
@@ -27,8 +21,3 @@ kit_body = {
     "productsCount": 0
 }
 
-
-auth_token = {
-    "username": "admin",
-    "password": "password123"
-}

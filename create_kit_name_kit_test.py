@@ -18,8 +18,8 @@ def positive_assert(kit_body):
 
 def negative_assert(kit_body):
     kit_response = sender_stand_request.post_new_client_kit(kit_body, auth_token=sender_stand_request.auth_token)
-    assert len(kit_body['name']) >= 1
-    assert len(kit_body['name']) <= 511
+    #assert len(kit_body['name']) >= 1 # если оставить эту проверку, в тесте на недопустимое количество символов будет указана конкретная причина, почему тест не прошёл (длина строки меньше 1 (заданный параметр != 1))
+    #assert len(kit_body['name']) <= 511 # если оставить эту проверку, в тесте на недопустимое количество символов будет указана конкретная причина, почему тест не прошёл (длина строки больше 511 (заданный параметр != 511))
     assert kit_response.status_code == 400
 
 
@@ -40,13 +40,13 @@ def test_create_kit_zero_letter_in_name_get_unsuccess_response():
     negative_assert(kit_body)
 
 
-# Тест 4. Ошибка. Количество символов в строке меньше допустимого (512)
+# Тест 4. Ошибка. Количество символов в строке больше допустимого (512)
 def test_create_kit_largest_letter_in_name_get_unsuccess_response():
     kit_body = change_kit_body("AbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdAbcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcdabcD")
     negative_assert(kit_body)
 
 
-# Тест 5. Параметр состоит мз строки с английскими буквами
+# Тест 5. Параметр состоит из строки с английскими буквами
 def test_create_kit_english_letters_allowed_get_success_response():
     positive_assert("QWErty")
 
@@ -81,4 +81,6 @@ def test_create_kit_parameter_not_passed_get_unsuccess_response():
 def test_create_kit_different_parameter_type_get_unsuccess_response():
     kit_body = change_kit_body(123)
     kit_response = sender_stand_request.post_new_client_kit(kit_body, auth_token=sender_stand_request.auth_token)
-    assert isinstance(kit_response.json()['name'], str)
+
+    #assert isinstance(kit_response.json()['name'], str) #если использовать эту проверку тест также упадёт, но будет указана конкретная причина почему - несоответствие типа данных в заданном параметре
+    assert kit_response.status_code == 400

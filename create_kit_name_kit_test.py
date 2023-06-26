@@ -1,5 +1,7 @@
+import configuration
 import data
 import sender_stand_request
+
 
 
 def change_kit_body(query):
@@ -18,8 +20,8 @@ def positive_assert(kit_body):
 
 def negative_assert(kit_body):
     kit_response = sender_stand_request.post_new_client_kit(kit_body, auth_token=sender_stand_request.auth_token)
-    #assert len(kit_body['name']) >= 1 # если оставить эту проверку, в тесте на недопустимое количество символов будет указана конкретная причина, почему тест не прошёл (длина строки меньше 1 (заданный параметр != 1))
-    #assert len(kit_body['name']) <= 511 # если оставить эту проверку, в тесте на недопустимое количество символов будет указана конкретная причина, почему тест не прошёл (длина строки больше 511 (заданный параметр != 511))
+    print(kit_response.json())
+
     assert kit_response.status_code == 400
 
 
@@ -73,7 +75,8 @@ def test_create_kit_numbers_allowed_get_success_response():
 
 # Тест 10. Ошибка. Параметр не передан в запросе
 def test_create_kit_parameter_not_passed_get_unsuccess_response():
-    kit_body = change_kit_body({})
+    kit_body = data.kit_body.copy()
+    kit_body.pop("name")
     negative_assert(kit_body)
 
 
@@ -82,5 +85,4 @@ def test_create_kit_different_parameter_type_get_unsuccess_response():
     kit_body = change_kit_body(123)
     kit_response = sender_stand_request.post_new_client_kit(kit_body, auth_token=sender_stand_request.auth_token)
 
-    #assert isinstance(kit_response.json()['name'], str) #если использовать эту проверку тест также упадёт, но будет указана конкретная причина почему - несоответствие типа данных в заданном параметре
     assert kit_response.status_code == 400
